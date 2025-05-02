@@ -13,7 +13,7 @@
         <geom type="mesh" group="3"/>
       </default>
     </default>
-
+        
     <default class="gen3">
       <default class="gen3/visual">
         <geom type="mesh" contype="0" conaffinity="0" group="2" rgba="0.75294 0.75294 0.75294 1"/>
@@ -22,10 +22,10 @@
         <geom type="mesh" group="3"/>
       </default>
       <default class="large_actuator">
-        <position kp="2000" kv="100" forcerange="-105 105"/>
+        <position kp="10000" kv="500" forcerange="-5000 5000"/>
       </default>
       <default class="small_actuator">
-        <position kp="500" kv="50" forcerange="-52 52"/>
+        <position kp="5000" kv="200" forcerange="-5000 5000"/>
       </default>
     </default>
 
@@ -65,6 +65,10 @@
     </default>
 
     <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4"/>
+
+    <default class="rangefinder">
+      <site size="0.01" pos="0.24 0 0" rgba="1 0 0 1" group="5"/>
+    </default>
   </default>
 
   <asset>
@@ -117,15 +121,52 @@
       <geom class="base/collision" mesh="arm_plate"/>
       <camera name="base" pos="0.2525 0 0.335" euler="0 -0.7853981634 -1.5707963268" fovy="52.23384539951277"
         resolution="640 360"/>
-      <body name="gen3/base_link" pos="0 0 0.335" quat="1 0 0 0">
+      <body name="gen3/base_link" pos="0 0 0.335" quat="-1 0 0 0">
         <inertial pos="-0.000648 -0.000166 0.084487" quat="0.999294 0.00139618 -0.0118387 0.035636" mass="1.697"
           diaginertia="0.00462407 0.00449437 0.00207755"/>
         <geom class="gen3/visual" mesh="gen3/base_link"/>
         <geom class="gen3/collision" mesh="gen3/base_link"/>
+        <site name="rf_00" class="rangefinder" euler="-1.57080 0.00000  1.57080"/>
+        <site name="rf_01" class="rangefinder" euler="-1.57080 0.08727  1.57080"/>
+        <site name="rf_02" class="rangefinder" euler="-1.57080 0.17453  1.57080"/>
+        <site name="rf_03" class="rangefinder" euler="-1.57080 0.26180  1.57080"/>
+        <site name="rf_04" class="rangefinder" euler="-1.57080 0.34907  1.57080"/>
+        <site name="rf_05" class="rangefinder" euler="-1.57080 0.43633  1.57080"/>
+        <site name="rf_06" class="rangefinder" euler="-1.57080 0.52360  1.57080"/>
+        <site name="rf_07" class="rangefinder" euler="-1.57080 0.61087  1.57080"/>
+        <site name="rf_08" class="rangefinder" euler="-1.57080 0.69813  1.57080"/>
+        <site name="rf_09" class="rangefinder" euler="-1.57080 0.78540  1.57080"/>
+        <site name="rf_10" class="rangefinder" euler="-1.57080 0.87266  1.57080"/>
+        <site name="rf_11" class="rangefinder" euler="-1.57080 0.95993  1.57080"/>
+        <site name="rf_12" class="rangefinder" euler="-1.57080 1.04720  1.57080"/>
+        <site name="rf_13" class="rangefinder" euler="-1.57080 1.13446  1.57080"/>
+        <site name="rf_14" class="rangefinder" euler="-1.57080 1.22173  1.57080"/>
+        <site name="rf_15" class="rangefinder" euler="-1.57080 1.30900  1.57080"/>
+        <site name="rf_16" class="rangefinder" euler="-1.57080 1.39626  1.57080"/>
+        <site name="rf_17" class="rangefinder" euler="-1.57080 1.48353  1.57080"/>
+        <site name="rf_18" class="rangefinder" euler=" 0.00000 1.57080  0.00000"/>
+        <site name="rf_19" class="rangefinder" euler=" 1.57080 1.48353 -1.57080"/>
+        <site name="rf_20" class="rangefinder" euler=" 1.57080 1.39626 -1.57080"/>
+        <site name="rf_21" class="rangefinder" euler=" 1.57080 1.30900 -1.57080"/>
+        <site name="rf_22" class="rangefinder" euler=" 1.57080 1.22173 -1.57080"/>
+        <site name="rf_23" class="rangefinder" euler=" 1.57080 1.13446 -1.57080"/>
+        <site name="rf_24" class="rangefinder" euler=" 1.57080 1.04720 -1.57080"/>
+        <site name="rf_25" class="rangefinder" euler=" 1.57080 0.95993 -1.57080"/>
+        <site name="rf_26" class="rangefinder" euler=" 1.57080 0.87266 -1.57080"/>
+        <site name="rf_27" class="rangefinder" euler=" 1.57080 0.78540 -1.57080"/>
+        <site name="rf_28" class="rangefinder" euler=" 1.57080 0.69813 -1.57080"/>
+        <site name="rf_29" class="rangefinder" euler=" 1.57080 0.61087 -1.57080"/>
+        <site name="rf_30" class="rangefinder" euler=" 1.57080 0.52360 -1.57080"/>
+        <site name="rf_31" class="rangefinder" euler=" 1.57080 0.43633 -1.57080"/>
+        <site name="rf_32" class="rangefinder" euler=" 1.57080 0.34907 -1.57080"/>
+        <site name="rf_33" class="rangefinder" euler=" 1.57080 0.26180 -1.57080"/>
+        <site name="rf_34" class="rangefinder" euler=" 1.57080 0.17453 -1.57080"/>
+        <site name="rf_35" class="rangefinder" euler=" 1.57080 0.08727 -1.57080"/>
+        <site name="rf_36" class="rangefinder" euler=" 1.57080 0.00000 -1.57080"/>
         <body name="shoulder_link" pos="0 0 0.15643" quat="0 1 0 0">
           <inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.3773"
             diaginertia="0.00488868 0.00457 0.00135132"/>
-          <joint name="joint_1"/>
+          <joint name="joint_1" range="-3.14159 3.14159"/>
           <geom class="gen3/visual" mesh="shoulder_link"/>
           <geom class="gen3/collision" mesh="shoulder_link"/>
           <body name="half_arm_1_link" pos="0 0.005375 -0.12838" quat="1 1 0 0">
@@ -137,7 +178,7 @@
             <body name="half_arm_2_link" pos="0 -0.21038 -0.006375" quat="1 -1 0 0">
               <inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.1636"
                 diaginertia="0.0111633 0.010932 0.00100671"/>
-              <joint name="joint_3"/>
+              <joint name="joint_3" range="-3.14159 3.14159"/>
               <geom class="gen3/visual" mesh="half_arm_2_link"/>
               <geom class="gen3/collision" mesh="half_arm_2_link"/>
               <body name="forearm_link" pos="0 0.006375 -0.21038" quat="1 1 0 0">
@@ -149,7 +190,7 @@
                 <body name="spherical_wrist_1_link" pos="0 -0.20843 -0.006375" quat="1 -1 0 0">
                   <inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.6781"
                     diaginertia="0.00165901 0.001596 0.000346988"/>
-                  <joint name="joint_5"/>
+                  <joint name="joint_5" range="-3.14159 3.14159"/>
                   <geom class="gen3/visual" mesh="spherical_wrist_1_link"/>
                   <geom class="gen3/collision" mesh="spherical_wrist_1_link"/>
                   <body name="spherical_wrist_2_link" pos="0 0.00017505 -0.10593" quat="1 1 0 0">
@@ -161,7 +202,7 @@
                     <body name="bracelet_link" pos="0 -0.10593 -0.00017505" quat="1 -1 0 0">
                       <inertial pos="0.000281 0.011402 -0.029798" quat="0.394358 0.596779 -0.577293 0.393789" mass="0.5"
                         diaginertia="0.000657336 0.000587019 0.000320645"/>
-                      <joint name="joint_7"/>
+                      <joint name="joint_7" range="-3.14159 3.14159"/>
                       <geom class="gen3/visual" mesh="bracelet_with_vision_link"/>
                       <geom class="gen3/collision" mesh="bracelet_with_vision_link"/>
                       <body name="base" pos="0 0 -0.06149039" quat="0 -1 1 0" childclass="2f85">
@@ -201,8 +242,8 @@
                             <geom class="2f85/visual" mesh="follower" material="2f85/black"/>
                             <geom class="2f85/collision" mesh="follower"/>
                             <body name="right_pad" pos="0 -0.0189 0.01352">
-                              <geom class="pad_box1" name="right_pad1"/>
-                              <geom class="pad_box2" name="right_pad2"/>
+                              <geom class="pad_box1" name="right_pad1" friction="1 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box2" name="right_pad2" friction="1 1 1" contype="1" conaffinity="1"/>
                               <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="0.707107 0 0 0.707107"
                                 diaginertia="4.73958e-07 3.64583e-07 1.23958e-07"/>
                               <geom class="2f85/visual" mesh="pad"/>
@@ -242,8 +283,8 @@
                             <geom class="2f85/visual" mesh="follower" material="2f85/black"/>
                             <geom class="2f85/collision" mesh="follower"/>
                             <body name="left_pad" pos="0 -0.0189 0.01352">
-                              <geom class="pad_box1" name="left_pad1"/>
-                              <geom class="pad_box2" name="left_pad2"/>
+                              <geom class="pad_box1" name="left_pad1" friction="1 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box2" name="left_pad2" friction="1 1 1" contype="1" conaffinity="1"/>
                               <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="1 0 0 1"
                                 diaginertia="4.73958e-07 3.64583e-07 1.23958e-07"/>
                               <geom class="2f85/visual" mesh="pad"/>
@@ -254,7 +295,9 @@
                           </body>
                         </body>
                       </body>
-                      <camera name="wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236"
+                      <!-- <camera name="wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236"
+                        resolution="640 480"/> -->
+                      <camera name="wrist" pos="0. 0. -0.1375" quat="1.000000e+00 0.000000e+00 0.000000e+00 6.123234e-17" fovy="41.83792730009236"
                         resolution="640 480"/>
                       <site name="pinch_site" pos="0 0 -0.181525" quat="0 1 0 0"/>
                     </body>
@@ -295,21 +338,69 @@
     <position name="joint_x" joint="joint_x" kp="1000000" kv="50000"/>
     <position name="joint_y" joint="joint_y" kp="1000000" kv="50000"/>
     <position name="joint_th" joint="joint_th" kp="50000" kv="1000"/>
-    <position class="large_actuator" name="joint_1" joint="joint_1"/>
-    <position class="large_actuator" name="joint_2" joint="joint_2" ctrlrange="-2.2497294058206907 2.2497294058206907"/>
-    <position class="large_actuator" name="joint_3" joint="joint_3"/>
-    <position class="large_actuator" name="joint_4" joint="joint_4" ctrlrange="-2.5795966344476193 2.5795966344476193"/>
-    <position class="small_actuator" name="joint_5" joint="joint_5"/>
-    <position class="small_actuator" name="joint_6" joint="joint_6" ctrlrange="-2.0996310901491784 2.0996310901491784"/>
-    <position class="small_actuator" name="joint_7" joint="joint_7"/>
-    <general class="2f85" name="fingers_actuator" tendon="split" forcerange="-5 5" ctrlrange="0 255"
-      gainprm="0.3137255 0 0" biasprm="0 -100 -10"/>
+
+    <motor name="joint_1" joint="joint_1" gear="100" forcerange="-10000 10000"/>
+    <motor name="joint_2" joint="joint_2" gear="100" forcerange="-10000 10000"/>
+    <motor name="joint_3" joint="joint_3" gear="100" forcerange="-10000 10000"/>
+    <motor name="joint_4" joint="joint_4" gear="100"  forcerange="-10000 10000"/>
+    <motor name="joint_5" joint="joint_5" gear="100"  forcerange="-10000 10000"/>
+    <motor name="joint_6" joint="joint_6" gear="100"  forcerange="-10000 10000"/>
+    <motor name="joint_7" joint="joint_7" gear="100"  forcerange="-10000 10000"/>
+
+    <general class="2f85" name="fingers_actuator" tendon="split"
+            forcerange="-300 300" ctrlrange="0 255"
+            gainprm="1 0 0" biasprm="0 -100 -10"/>
+<!-- 
+    <general class="2f85" name="fingers_actuator" tendon="split" forcerange="-50 50" ctrlrange="0 255"
+      gainprm="1 0 0" biasprm="0 -100 -10"/> -->
   </actuator>
 
   <keyframe>
-    <key name="home" qpos="0 0 0 0 0.26179939 3.14159265 -2.26892803 0 0.95993109 1.57079633 0 0 0 0 0 0 0 0"
-      ctrl="0 0 0 0 0.26179939 3.14159265 -2.26892803 0 0.95993109 1.57079633 0"/>
-    <key name="retract" qpos="0 0 0 0 -0.34906585 3.14159265 -2.54818071 0 -0.87266463 1.57079633 0 0 0 0 0 0 0 0"
-      ctrl="0 0 0 0 -0.34906585 3.14159265 -2.54818071 0 -0.87266463 1.57079633 0"/>
+    <key name="home"
+        qpos="0 0 0 1 0 0 0   0 0 0 0.26179939 3.14159265 -2.26892803 0 0.95993109 1.57079633 0 0 0 0 0 0 0 0 0"
+        ctrl="0 0 0 0 0.26179939 3.14159265 -2.26892803 0 0.95993109 1.57079633 0"/>
+    <key name="retract"
+        qpos="0 0 0 1 0 0 0   0 0 0 -0.34906585 3.14159265 -2.54818071 0 -0.87266463 1.57079633 0 0 0 0 0 0 0 0 0"
+        ctrl="0 0 0 0 -0.34906585 3.14159265 -2.54818071 0 -0.87266463 1.57079633 0"/>
   </keyframe>
+
+  <!-- <sensor>
+    <rangefinder name="rf_00" site="rf_00" cutoff="6.0"/>
+    <rangefinder name="rf_01" site="rf_01" cutoff="6.0"/>
+    <rangefinder name="rf_02" site="rf_02" cutoff="6.0"/>
+    <rangefinder name="rf_03" site="rf_03" cutoff="6.0"/>
+    <rangefinder name="rf_04" site="rf_04" cutoff="6.0"/>
+    <rangefinder name="rf_05" site="rf_05" cutoff="6.0"/>
+    <rangefinder name="rf_06" site="rf_06" cutoff="6.0"/>
+    <rangefinder name="rf_07" site="rf_07" cutoff="6.0"/>
+    <rangefinder name="rf_08" site="rf_08" cutoff="6.0"/>
+    <rangefinder name="rf_09" site="rf_09" cutoff="6.0"/>
+    <rangefinder name="rf_10" site="rf_10" cutoff="6.0"/>
+    <rangefinder name="rf_11" site="rf_11" cutoff="6.0"/>
+    <rangefinder name="rf_12" site="rf_12" cutoff="6.0"/>
+    <rangefinder name="rf_13" site="rf_13" cutoff="6.0"/>
+    <rangefinder name="rf_14" site="rf_14" cutoff="6.0"/>
+    <rangefinder name="rf_15" site="rf_15" cutoff="6.0"/>
+    <rangefinder name="rf_16" site="rf_16" cutoff="6.0"/>
+    <rangefinder name="rf_17" site="rf_17" cutoff="6.0"/>
+    <rangefinder name="rf_18" site="rf_18" cutoff="6.0"/>
+    <rangefinder name="rf_19" site="rf_19" cutoff="6.0"/>
+    <rangefinder name="rf_20" site="rf_20" cutoff="6.0"/>
+    <rangefinder name="rf_21" site="rf_21" cutoff="6.0"/>
+    <rangefinder name="rf_22" site="rf_22" cutoff="6.0"/>
+    <rangefinder name="rf_23" site="rf_23" cutoff="6.0"/>
+    <rangefinder name="rf_24" site="rf_24" cutoff="6.0"/>
+    <rangefinder name="rf_25" site="rf_25" cutoff="6.0"/>
+    <rangefinder name="rf_26" site="rf_26" cutoff="6.0"/>
+    <rangefinder name="rf_27" site="rf_27" cutoff="6.0"/>
+    <rangefinder name="rf_28" site="rf_28" cutoff="6.0"/>
+    <rangefinder name="rf_29" site="rf_29" cutoff="6.0"/>
+    <rangefinder name="rf_30" site="rf_30" cutoff="6.0"/>
+    <rangefinder name="rf_31" site="rf_31" cutoff="6.0"/>
+    <rangefinder name="rf_32" site="rf_32" cutoff="6.0"/>
+    <rangefinder name="rf_33" site="rf_33" cutoff="6.0"/>
+    <rangefinder name="rf_34" site="rf_34" cutoff="6.0"/>
+    <rangefinder name="rf_35" site="rf_35" cutoff="6.0"/>
+    <rangefinder name="rf_36" site="rf_36" cutoff="6.0"/>
+  </sensor> -->
 </mujoco>
