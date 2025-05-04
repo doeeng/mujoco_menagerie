@@ -1,0 +1,60 @@
+<mujoco model="rover_v2">
+    <compiler angle="radian" />
+    <!-- <option gravity="0 0 -9.81" /> -->
+    <default>
+        <default class="collision">
+            <geom type="mesh" group="3"/>
+        </default>
+        <default class="large_actuator">
+            <position kp="2000" kv="100" forcerange="-105 105"/>
+        </default>
+    </default>
+    <asset>
+        <mesh name="Base" file="meshes/Base.stl" scale="0.001 0.001 0.001" />
+        <mesh name="Rare_Right_Wheel" file="meshes/Rare_Right_Wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh name="Rare_Left_Wheel" file="meshes/Rare_Left_Wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh name="Front_Right_Wheel" file="meshes/Front_Right_Wheel.stl" scale="0.001 0.001 0.001" />
+        <mesh name="Front_Left_Wheel" file="meshes/Front_Left_Wheel.stl" scale="0.001 0.001 0.001" />
+    </asset>
+    <worldbody>
+        <body name="Base" pos="0 0 0.35" quat="1 0 0 0">
+            <!-- Visual -->
+            <geom type="mesh" mesh="Base" name="Base_visual" contype="0" conaffinity="0" />
+            <!-- Inertia -->
+            <inertial mass="1173.5564481241856" pos="0 0 0.2882663400770456" 
+                      fullinertia="353.3901658598952 216.9345812773544 462.8768446710428 -3.7431716918945313e-13 -3.275275230407715e-13 -9.783319843123273e-13" />
+
+            <!-- Wheels -->     
+            <body name="Rare_Right_Wheel" pos="-0.64 0.48 0.05" quat="1 0 0 0">
+                <joint name="rare_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <geom type="mesh" mesh="Rare_Right_Wheel" name="Rare_Right_Wheel_geom" contype="1" conaffinity="1" />
+                <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
+            </body>
+
+            <body name="Rare_Left_Wheel" pos="0.64 0.48 0.05" quat="1 0 0 0">
+                <joint name="rare_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <geom type="mesh" mesh="Rare_Left_Wheel" name="Rare_Left_Wheel_geom" contype="1" conaffinity="1" />
+                <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
+            </body>
+
+            <body name="Front_Right_Wheel" pos="-0.64 -0.48 0.05" quat="1 0 0 0">
+                <joint name="front_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <geom type="mesh" mesh="Front_Right_Wheel" name="Front_Right_Wheel_geom" contype="1" conaffinity="1" />
+                <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
+            </body>
+
+            <body name="Front_Left_Wheel" pos="0.64 -0.48 0.05" quat="1 0 0 0">
+                <joint name="front_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <geom type="mesh" mesh="Front_Left_Wheel" name="Front_Left_Wheel_geom" contype="1" conaffinity="1" />
+                <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <position class="large_actuator" name="rare_right_wheel_joint" joint="rare_right_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <position class="large_actuator" name="rare_left_motor" joint="rare_left_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <position class="large_actuator" name="front_right_motor" joint="front_right_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <position class="large_actuator" name="front_left_motor" joint="front_left_wheel_joint" ctrlrange="-3.14 3.14"/>
+    </actuator>
+</mujoco>
