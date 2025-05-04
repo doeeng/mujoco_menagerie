@@ -5,9 +5,9 @@
         <default class="collision">
             <geom type="mesh" group="3"/>
         </default>
-        <default class="large_actuator">
+        <!-- <default class="large_actuator">
             <position kp="2000" kv="100" forcerange="-105 105"/>
-        </default>
+        </default> -->
     </default>
     <asset>
         <mesh name="Base" file="meshes/Base.stl" scale="0.001 0.001 0.001" />
@@ -26,35 +26,48 @@
 
             <!-- Wheels -->     
             <body name="Rare_Right_Wheel" pos="-0.64 0.48 0.05" quat="1 0 0 0">
-                <joint name="rare_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <joint name="rare_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" damping="0.5" limited="false"/>
                 <geom type="mesh" mesh="Rare_Right_Wheel" name="Rare_Right_Wheel_geom" contype="1" conaffinity="1" />
+                <geom type="cylinder" size="0.4 0.2" quat="0.7071 0 0.7071 0" name="Rare_Right_Wheel_collision" contype="1" conaffinity="1"/>
                 <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
             </body>
 
             <body name="Rare_Left_Wheel" pos="0.64 0.48 0.05" quat="1 0 0 0">
-                <joint name="rare_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <joint name="rare_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" damping="0.5" limited="false"/>
                 <geom type="mesh" mesh="Rare_Left_Wheel" name="Rare_Left_Wheel_geom" contype="1" conaffinity="1" />
+                <geom type="cylinder" size="0.4 0.2" quat="0.7071 0 0.7071 0" name="Rare_Left_Wheel_collision" contype="1" conaffinity="1"/>
                 <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
             </body>
 
             <body name="Front_Right_Wheel" pos="-0.64 -0.48 0.05" quat="1 0 0 0">
-                <joint name="front_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <joint name="front_right_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" damping="0.5" limited="false"/>
                 <geom type="mesh" mesh="Front_Right_Wheel" name="Front_Right_Wheel_geom" contype="1" conaffinity="1" />
+                <geom type="cylinder" size="0.4 0.2" quat="0.7071 0 0.7071 0" name="Front_Right_Wheel_collision" contype="1" conaffinity="1"/>
                 <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
             </body>
 
             <body name="Front_Left_Wheel" pos="0.64 -0.48 0.05" quat="1 0 0 0">
-                <joint name="front_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" />
+                <joint name="front_left_wheel_joint" type="hinge" axis="1 0 0" pos="0 0 0" damping="0.5" limited="false"/>
                 <geom type="mesh" mesh="Front_Left_Wheel" name="Front_Left_Wheel_geom" contype="1" conaffinity="1" />
+                <geom type="cylinder" size="0.4 0.2" quat="0.7071 0 0.7071 0" name="Front_Left_Wheel_collision" contype="1" conaffinity="1"/>
                 <inertial mass="993.6" pos="0 0 0" fullinertia="105.4 65.2 65.2 0 0 0" />
             </body>
+            <!-- camera setting : front based-->
+            <camera name="cam" pos="0 0 0.7" quat="0 0 1 1" fovy="40" resolution="640 480"/>
         </body>
     </worldbody>
 
+    <!-- <actuator>
+        <velocity class="large_actuator" name="rare_right_wheel_joint" joint="rare_right_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <velocity class="large_actuator" name="rare_left_motor" joint="rare_left_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <velocity class="large_actuator" name="front_right_motor" joint="front_right_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <velocity class="large_actuator" name="front_left_motor" joint="front_left_wheel_joint" ctrlrange="-3.14 3.14"/>
+    </actuator> -->
     <actuator>
-        <position class="large_actuator" name="rare_right_wheel_joint" joint="rare_right_wheel_joint" ctrlrange="-3.14 3.14"/>
-        <position class="large_actuator" name="rare_left_motor" joint="rare_left_wheel_joint" ctrlrange="-3.14 3.14"/>
-        <position class="large_actuator" name="front_right_motor" joint="front_right_wheel_joint" ctrlrange="-3.14 3.14"/>
-        <position class="large_actuator" name="front_left_motor" joint="front_left_wheel_joint" ctrlrange="-3.14 3.14"/>
+        <motor name="rare_right_motor" joint="rare_right_wheel_joint" ctrlrange="-100 100" gear="100" forcerange="-1000 1000"/>
+        <motor name="rare_left_motor" joint="rare_left_wheel_joint" ctrlrange="-100 100" gear="100" forcerange="-1000 1000"/>
+        <motor name="front_right_motor" joint="front_right_wheel_joint" ctrlrange="-100 100" gear="100" forcerange="-1000 1000"/>
+        <motor name="front_left_motor" joint="front_left_wheel_joint" ctrlrange="-100 100" gear="100" forcerange="-1000 1000"/>
     </actuator>
+
 </mujoco>
