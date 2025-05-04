@@ -1,4 +1,4 @@
-<mujoco model="tile_track_scene">
+<mujoco model="rover_scene">
   <statistic center="0.4 0 0.4" extent="0.8"/>
   <!-- <include file="rover_v1.xml"/> -->
   <include file="rover_v2.xml"/>
