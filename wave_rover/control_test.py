@@ -5,6 +5,7 @@ import threading
 from pynput import keyboard
 import cv2
 
+
 # MuJoCo 모델 불러오기
 model = mujoco.MjModel.from_xml_path(
     "/home/oh/my_mujoco/mujoco_menagerie/wave_rover/scene_road.xml"
@@ -73,6 +74,11 @@ threading.Thread(target=keyboard_control, daemon=True).start()
 # OpenCV 창 준비
 cv2.namedWindow("MuJoCo Camera View", cv2.WINDOW_NORMAL)
 
+# 영상 저장
+video_filename = "test.mp4"
+fps = 10
+video_writer = None
+
 # MuJoCo Viewer 실행
 with mujoco.viewer.launch_passive(model, data) as viewer:
     while viewer.is_running():
@@ -91,6 +97,13 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
 
         # OpenCV에 표시 (RGB -> BGR 변환)
         pixels_bgr = cv2.cvtColor(pixels, cv2.COLOR_RGB2BGR)
+
+        if video_writer is None:
+            height, width, _ = pixels_bgr.shape
+            fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+            video_writer = cv2.VideoWriter(video_filename, fourcc, fps, (width, height))
+        video_writer.write(pixels_bgr)
+
         cv2.imshow("MuJoCo Camera View", pixels_bgr)
 
         # ESC 키 누르면 종료
@@ -99,3 +112,5 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
 
 # OpenCV 창 닫기
 cv2.destroyAllWindows()
+if video_writer:
+    video_writer.release()
