@@ -103,7 +103,12 @@
     <mesh class="2f85" file="2f85/spring_link.stl"/>
   </asset>
 
-  <worldbody>
+  <worldbody>  
+    <camera name="fixed_front"
+          pos="1.8 0 0.3" 
+          euler="0 1.57 1.57" 
+          fovy="55" 
+          resolution="640 480"/>
     <body name="base_link">
       <inertial pos="0 0 0.035" mass="60" diaginertia="0.001 0.001 0.001"/>
       <joint name="joint_x" type="slide" axis="1 0 0"/>
@@ -242,8 +247,8 @@
                             <geom class="2f85/visual" mesh="follower" material="2f85/black"/>
                             <geom class="2f85/collision" mesh="follower"/>
                             <body name="right_pad" pos="0 -0.0189 0.01352">
-                              <geom class="pad_box1" name="right_pad1" friction="1 1 1" contype="1" conaffinity="1"/>
-                              <geom class="pad_box2" name="right_pad2" friction="1 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box1" name="right_pad1" friction="5 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box2" name="right_pad2" friction="5 1 1" contype="1" conaffinity="1"/>
                               <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="0.707107 0 0 0.707107"
                                 diaginertia="4.73958e-07 3.64583e-07 1.23958e-07"/>
                               <geom class="2f85/visual" mesh="pad"/>
@@ -283,8 +288,8 @@
                             <geom class="2f85/visual" mesh="follower" material="2f85/black"/>
                             <geom class="2f85/collision" mesh="follower"/>
                             <body name="left_pad" pos="0 -0.0189 0.01352">
-                              <geom class="pad_box1" name="left_pad1" friction="1 1 1" contype="1" conaffinity="1"/>
-                              <geom class="pad_box2" name="left_pad2" friction="1 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box1" name="left_pad1" friction="5 1 1" contype="1" conaffinity="1"/>
+                              <geom class="pad_box2" name="left_pad2" friction="5 1 1" contype="1" conaffinity="1"/>
                               <inertial mass="0.0035" pos="0 -0.0025 0.0185" quat="1 0 0 1"
                                 diaginertia="4.73958e-07 3.64583e-07 1.23958e-07"/>
                               <geom class="2f85/visual" mesh="pad"/>
@@ -297,8 +302,14 @@
                       </body>
                       <!-- <camera name="wrist" pos="0 -0.05639 -0.058475" quat="0 0 0 1" fovy="41.83792730009236"
                         resolution="640 480"/> -->
-                      <camera name="wrist" pos="0. 0. -0.1375" quat="1.000000e+00 0.000000e+00 0.000000e+00 6.123234e-17" fovy="41.83792730009236"
-                        resolution="640 480"/>
+                      <!-- <camera name="wrist" pos="0. 0. -0.181525" quat="1.000000e+00 0.000000e+00 0.000000e+00 6.123234e-17" fovy="41.83792730009236" -->
+                        <!-- resolution="640 480"/> -0.1375 -->
+                      <camera name="wrist" pos="0 0. -0.22" euler="0 0 -1.57" fovy="41.83792730009236" resolution="224 224"/>
+                      <!-- <camera name="wrist_overview"
+                        pos="-0.5  0  0.7" 
+                        euler="0.2  -0.5  -1.57"  
+                        fovy="55"
+                        resolution="640 480"/> -->
                       <site name="pinch_site" pos="0 0 -0.181525" quat="0 1 0 0"/>
                     </body>
                   </body>
